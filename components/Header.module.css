@@ -1,0 +1,23 @@
+.header {
+  padding: 12px 0;
+  text-align: center;
+  border-bottom: #555 solid 1px;
+}
+.anchor {
+  width: 80px;
+  display: inline-block;
+  padding: 4px 12px;
+  margin: 4px;
+
+  border-radius: var(--border-radius);
+  background: rgba(var(--card-rgb), 0);
+  border: 1px solid rgba(var(--card-border-rgb), 0);
+  transition: background 200ms, border 200ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .anchor:hover {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  }
+}
