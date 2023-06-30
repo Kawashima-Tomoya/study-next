@@ -3,6 +3,7 @@ import { Main } from "@/src/components/Main";
 import { Header } from "@/src/components/Header";
 import { useCallback } from "react";
 
+//煩雑冗長にならなければ外部に書く
 // const handleClick = (e) => {
 //   console.log(e.target.href);
 //   e.preventDefault();
@@ -10,8 +11,9 @@ import { useCallback } from "react";
 
 export default function Home() {
   const foo = 1;
-  /* useCallback(関数, 依存配列)はサイレンダリング時の関数の再生性を防げるため、
-   関数をコンポーネントの内部に記述してもパフォーマンスを保てる */
+  /* コンポーネント内部に定義したメソッドはサイレンダリングで再生成される。
+    useCallback(関数, 依存配列)はサイレンダリング時の関数の再生成を防げるため、
+    関数をコンポーネントの内部に記述してもパフォーマンスを保てる */
   const handleClick = useCallback((e) => {
     console.log(e.target.href);
     e.preventDefault();
