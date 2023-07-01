@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Main } from "@/src/components/Main";
 import { Header } from "@/src/components/Header";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 //煩雑冗長にならなければ外部に書く
 // const handleClick = (e) => {
@@ -18,6 +18,15 @@ export default function Home() {
     console.log(e.target.href);
     e.preventDefault();
     alert(foo);
+  }, []);
+
+  useEffect(() => {
+    console.log("マウント");
+    document.body.style.backgroundColor = "teal";
+    return () => {
+      console.log("アンマウント");
+      document.body.style.backgroundColor = "";
+    };
   }, []);
 
   return (
