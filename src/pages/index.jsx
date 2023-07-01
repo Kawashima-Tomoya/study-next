@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Main } from "@/src/components/Main";
 import { Header } from "@/src/components/Header";
-import { useCallback, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 //煩雑冗長にならなければ外部に書く
 // const handleClick = (e) => {
@@ -10,21 +10,19 @@ import { useCallback, useEffect } from "react";
 // };
 
 export default function Home() {
-  const foo = 1;
   /* コンポーネント内部に定義したメソッドはサイレンダリングで再生成される。
     useCallback(関数, 依存配列)はサイレンダリング時の関数の再生成を防げるため、
     関数をコンポーネントの内部に記述してもパフォーマンスを保てる */
-  const handleClick = useCallback((e) => {
-    console.log(e.target.href);
-    e.preventDefault();
-    alert(foo);
-  }, []);
+  const [count, setCount] = useState(10);
+
+  const handleClick = (e) => {
+    setCount((count) => count + 1);
+    setCount((count) => count + 1);
+  };
 
   useEffect(() => {
-    console.log("マウント");
     document.body.style.backgroundColor = "teal";
     return () => {
-      console.log("アンマウント");
       document.body.style.backgroundColor = "";
     };
   }, []);
@@ -36,9 +34,10 @@ export default function Home() {
       </Head>
 
       <Header />
-      <a href="./about" onClick={handleClick}>
+      <h1>{count}</h1>
+      <button href="./about" onClick={handleClick}>
         ボタン
-      </a>
+      </button>
       <Main page="index" />
     </>
   );
