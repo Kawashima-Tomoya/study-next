@@ -1,28 +1,26 @@
 import Head from "next/head";
 import { Main } from "@/src/components/Main";
 import { Header } from "@/src/components/Header";
-import { useEffect, useState } from "react";
-
-//煩雑冗長にならなければ外部に書く
-// const handleClick = (e) => {
-//   console.log(e.target.href);
-//   e.preventDefault();
-// };
+import { useCallback, useEffect, useState } from "react";
 
 export default function Home() {
-  /* コンポーネント内部に定義したメソッドはサイレンダリングで再生成される。
-    useCallback(関数, 依存配列)はサイレンダリング時の関数の再生成を防げるため、
+  /* コンポーネント内部に定義したメソッドは再レンダリングで再生成される。
+    useCallback(関数, 依存配列)は再レンダリング時の関数の再生成を防げるため、
     関数をコンポーネントの内部に記述してもパフォーマンスを保てる */
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(0);
 
-  const handleClick = (e) => {
-    setCount((count) => count + 1);
-    setCount((count) => count + 1);
-  };
+  const handleClick = useCallback(() => {
+    console.log(count);
+    if (count < 10) {
+      setCount((count) => count + 1);
+    }
+  }, [count]);
 
   useEffect(() => {
+    console.log(`マウント時:${count}`);
     document.body.style.backgroundColor = "teal";
     return () => {
+      console.log(`アンマウント時:${count}`);
       document.body.style.backgroundColor = "";
     };
   }, []);
