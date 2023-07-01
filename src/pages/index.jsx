@@ -8,6 +8,8 @@ export default function Home() {
     useCallback(関数, 依存配列)は再レンダリング時の関数の再生成を防げるため、
     関数をコンポーネントの内部に記述してもパフォーマンスを保てる */
   const [count, setCount] = useState(0);
+  const [text, setText] = useState("");
+  const [isShow, setIsShow] = useState(true);
 
   const handleClick = useCallback(() => {
     console.log(count);
@@ -15,6 +17,18 @@ export default function Home() {
       setCount((count) => count + 1);
     }
   }, [count]);
+
+  const handleChange = useCallback((e) => {
+    if (e.target.value.length > 5) {
+      return;
+    }
+    setText(e.target.value);
+  }, []);
+
+  const handleDisplay = useCallback(() => {
+    setIsShow((isShow) => !isShow);
+    // isShow ? false : true);
+  }, []);
 
   useEffect(() => {
     console.log(`マウント時:${count}`);
@@ -32,10 +46,12 @@ export default function Home() {
       </Head>
 
       <Header />
-      <h1>{count}</h1>
+      {isShow ? <h1>{count}</h1> : null}
       <button href="./about" onClick={handleClick}>
         ボタン
       </button>
+      <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
+      <input type="text" name="name" value={text} onChange={handleChange} />
       <Main page="index" />
     </>
   );
