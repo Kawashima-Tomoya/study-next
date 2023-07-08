@@ -10,6 +10,7 @@ export default function Home() {
   const [count, setCount] = useState(0);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState([]);
 
   const handleClick = useCallback(() => {
     console.log(count);
@@ -24,6 +25,17 @@ export default function Home() {
     }
     setText(e.target.value);
   }, []);
+
+  const handleAdd = useCallback(() => {
+    setArray((prevArray) => {
+      if (prevArray.some((item) => item === text)) {
+        alert("同じ要素がすでに存在しています！");
+        return prevArray;
+      }
+      setText("");
+      return [...prevArray, text];
+    });
+  }, [text]);
 
   const handleDisplay = useCallback(() => {
     setIsShow((previsShow) => !previsShow);
@@ -52,6 +64,12 @@ export default function Home() {
       </button>
       <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
       <input type="text" name="name" value={text} onChange={handleChange} />
+      <button onClick={handleAdd}>追加</button>
+      <ul>
+        {array.map((item) => {
+          return <li key={item}>{item}</li>;
+        })}
+      </ul>
       <Main page="index" />
     </>
   );
