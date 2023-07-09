@@ -1,11 +1,9 @@
 import styles from "@/src/components/Links/Links.module.css";
 
-export function Links(props) {
-  const { items } = props;
-
+export const Links = (props) => {
   return (
     <div className={styles.grid}>
-      {items.map((item) => {
+      {props.items.map((item) => {
         return (
           <a
             key={item.href}
@@ -71,4 +69,4 @@ export function Links(props) {
       </a> */}
     </div>
   );
-}
+};
