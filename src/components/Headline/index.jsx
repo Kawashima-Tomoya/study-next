@@ -22,6 +22,7 @@ export function Headline(props) {
           />
         </a>
       </div>
+      <button onClick={props.handleReduce}>減らす</button>
     </div>
   );
 }
