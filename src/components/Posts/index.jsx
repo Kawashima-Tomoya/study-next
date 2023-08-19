@@ -1,4 +1,5 @@
 import { usePosts } from "@/src/hooks/usePosts";
+import Link from "next/link";
 
 export const Posts = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
@@ -18,7 +19,13 @@ export const Posts = () => {
   return (
     <ol>
       {data.map((post) => {
-        return <li key={post.id}>{post.title}</li>;
+        return (
+          <li key={post.id}>
+            <Link key={post.id} href={`post/${post.id}`}>
+              {post.id}. {post.title}
+            </Link>
+          </li>
+        );
       })}
     </ol>
   );
