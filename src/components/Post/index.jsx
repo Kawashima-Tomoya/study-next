@@ -18,9 +18,13 @@ export const Post = () => {
       <Head>
         <title>{post?.title}</title>
       </Head>
-      <h1>{post?.title}</h1>
-      <p>{post?.body}</p>
-      {user?.name ? <p>Created by. {user.name}</p> : null}
+      {user?.name ? (
+        <div>
+          <h1>{post?.title}</h1>
+          <p>{post?.body}</p>
+          <p>Created by. {user.name}</p>
+        </div>
+      ) : null}
     </div>
   );
 };
