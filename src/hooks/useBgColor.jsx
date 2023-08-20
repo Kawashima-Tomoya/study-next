@@ -4,7 +4,7 @@ import { useEffect, useMemo } from "react";
 export const useBgColor = () => {
   const router = useRouter();
   const bgColor = useMemo(() => {
-    return router.pathname === "/" ? "teal" : "indigo";
+    return router.pathname === "/posts" ? "teal" : "indigo";
   }, [router.pathname]);
 
   useEffect(() => {
