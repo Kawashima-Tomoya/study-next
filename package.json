@@ -16,5 +16,9 @@
     "react-dom": "18.2.0",
     "swr": "^2.2.1",
     "tailwindcss": "^3.3.3"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/Kawashima-Tomoya/study-next.git",
+  "author": "Kawashima-Tomoya <57kawashima@gmail.com>",
+  "license": "MIT"
 }
