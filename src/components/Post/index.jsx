@@ -3,9 +3,7 @@ import Head from "next/head";
 
 export const Post = () => {
   const { post, user, error, isLoading } = usePost();
-  // console.log(
-  //   `post :${post}, user: ${user}, error: ${error}, isLoading: ${isLoading}`
-  // );
+
   if (error) {
     return <div>{error.message}</div>;
   }
