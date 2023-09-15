@@ -1,3 +1,4 @@
+import { CommentsByUserId } from "@/src/components/Comments/CommentsByUserId";
 import { PostsByUserId } from "@/src/components/Posts/PostsByUserId";
 import { useUser } from "@/src/hooks/useUser";
 
@@ -22,9 +23,10 @@ export const UserComponent = () => {
       </ul>
       <br />
       <h2>投稿</h2>
-      <br />
       <PostsByUserId id={data?.id} />
+      <br />
       <h2>コメント</h2>
+      <CommentsByUserId id={data?.id} />
     </div>
   );
 };
