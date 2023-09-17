@@ -18,7 +18,7 @@ export const PostsByUserId = (props) => {
 
   return (
     <ol>
-      {data?.map((post) => {
+      {data.map((post) => {
         return (
           <li key={post.id}>
             <Link key={post.id} href={`posts/${post.id}`}>
