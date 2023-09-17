@@ -2,9 +2,11 @@ import Head from "next/head";
 import { CommentsByPostId } from "@/src/components/Comments/CommentsByPostId";
 import { UserByUserId } from "@/src/components/User/UserByUserId";
 import { usePost } from "@/src/hooks/usePost";
+import { useRouter } from "next/router";
 
 export const Post = () => {
-  const { data, error, isLoading } = usePost();
+  const router = useRouter();
+  const { data, error, isLoading } = usePost(router.query.id);
 
   if (error) {
     return <div>{error.message}</div>;
