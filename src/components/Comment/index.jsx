@@ -19,7 +19,7 @@ export const CommentComponent = () => {
         <li>e-mail : {data?.email}</li>
         <br />
         <h2>元の記事</h2>
-        <PostByCommentId id={data.postId} />
+        <PostByCommentId id={data?.postId} />
       </ul>
     </div>
   );
