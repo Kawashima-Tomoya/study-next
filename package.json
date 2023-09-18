@@ -20,5 +20,9 @@
   "main": "index.js",
   "repository": "https://github.com/Kawashima-Tomoya/study-next.git",
   "author": "Kawashima-Tomoya <57kawashima@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.29"
+  }
 }
