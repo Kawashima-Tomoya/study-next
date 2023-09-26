@@ -17,16 +17,18 @@ export const PostsByUserId = (props) => {
   }
 
   return (
-    <ol>
+    <ul className="space-y-4 list-disc">
       {data.map((post) => {
         return (
           <li key={post.id}>
-            <Link key={post.id} href={`posts/${post.id}`}>
-              {post.title}
+            <Link key={post.id} href={`/posts/${post.id}`} className="group">
+              <h1 className=" font-bold  group-hover:text-blue-600">
+                {post.title}
+              </h1>
             </Link>
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 };

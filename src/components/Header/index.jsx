@@ -9,7 +9,7 @@ const NAV_ITEMS = [
 
 export const Header = () => {
   return (
-    <header className=" py-3 text-center border-b border-b-gray-500 ">
+    <header className=" py-3 text-center border-b border-b-gray-500 mb-4">
       {NAV_ITEMS.map((item) => {
         return (
           <Link
