@@ -16,7 +16,7 @@ export const CommentsByUserId = (props) => {
 
   return (
     <ul className="space-y-2">
-      {data.map((comment) => {
+      {data?.map((comment) => {
         return (
           <li key={comment.id} className="border-b pb-2">
             <Link key={comment.id} href={`/comments/${comment.id}`}>

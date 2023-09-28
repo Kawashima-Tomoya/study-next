@@ -18,7 +18,7 @@ export const Posts = () => {
 
   return (
     <ul className="space-y-4">
-      {data.map((post) => {
+      {data?.map((post) => {
         return (
           <li key={post.id}>
             <Link key={post.id} href={`posts/${post.id}`} className="group">
