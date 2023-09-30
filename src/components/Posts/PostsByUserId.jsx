@@ -17,7 +17,7 @@ export const PostsByUserId = (props) => {
   }
 
   return (
-    <ul className="space-y-4 list-disc">
+    <ul className="space-y-4">
       {data?.map((post) => {
         return (
           <li key={post.id}>

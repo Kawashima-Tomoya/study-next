@@ -24,11 +24,11 @@ export const UserComponent = () => {
       </div>
       <div className="mb-10">
         <h2 className="text-xl font-bold mb-2">投稿</h2>
-        <CommentsByUserId id={data?.id} />
+        <PostsByUserId id={data?.id} />
       </div>
       <div>
         <h2 className="text-xl font-bold mb-2">コメント</h2>
-        <PostsByUserId id={data?.id} />
+        <CommentsByUserId id={data?.id} />
       </div>
     </div>
   );
