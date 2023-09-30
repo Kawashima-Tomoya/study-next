@@ -4,7 +4,7 @@ import { SWRConfig } from "swr";
 
 export const getServerSideProps = async (ctx) => {
   const { id } = ctx.query;
-  const API_URL = `https://jsonplaceholder.typicode.com/users//${id}`;
+  const API_URL = `https://jsonplaceholder.typicode.com/users/${id}`;
   const user = await fetch(API_URL);
   const userData = await user.json();
 
