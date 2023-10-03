@@ -1,16 +1,36 @@
 import Head from "next/head";
 import { Header } from "@/src/components/Header";
 import { Users as PostUsers } from "@/src/components/Users";
+import { SWRConfig } from "swr";
 
-const Users = () => {
+export const getServerSideProps = async () => {
+  // ユーザー情報の取得
+  const USERS_API_URL = `https://jsonplaceholder.typicode.com/users`;
+  const users = await fetch(USERS_API_URL);
+  const usersData = await users.json();
+
+  return {
+    props: {
+      fallback: {
+        [USERS_API_URL]: usersData,
+      },
+    },
+  };
+};
+
+const Users = (props) => {
+  const { fallback } = props;
+
   return (
-    <>
+    <div>
       <Head>
         <title>Users Page</title>
       </Head>
-      <Header />
-      <PostUsers />
-    </>
+      <SWRConfig value={{ fallback }}>
+        <Header />
+        <PostUsers />
+      </SWRConfig>
+    </div>
   );
 };
 
