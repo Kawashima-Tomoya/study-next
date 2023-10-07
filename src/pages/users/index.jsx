@@ -4,7 +4,6 @@ import { Users as PostUsers } from "@/src/components/Users";
 import { SWRConfig } from "swr";
 
 export const getServerSideProps = async () => {
-  // ユーザー情報の取得
   const USERS_API_URL = `https://jsonplaceholder.typicode.com/users`;
   const users = await fetch(USERS_API_URL);
   const usersData = await users.json();
