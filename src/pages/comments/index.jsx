@@ -25,7 +25,7 @@ const Comments = (props) => {
       <Head>
         <title>Comments Page</title>
       </Head>
-      <SWRConfig value={fallback}>
+      <SWRConfig value={{ fallback }}>
         <Header />
         <PostComments />
       </SWRConfig>
