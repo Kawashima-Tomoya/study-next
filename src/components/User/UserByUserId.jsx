@@ -4,7 +4,7 @@ import useSWR from "swr";
 
 export const UserByUserId = (props) => {
   const { data, error, isLoading } = useSWR(
-    props.id ? `${API_URL}users/${props.id}` : null,
+    props.id ? `${API_URL}/users/${props.id}` : null,
     fetcher
   );
 
@@ -15,5 +15,5 @@ export const UserByUserId = (props) => {
     return <div>{error.message}</div>;
   }
 
-  return <div className="text-right  mb-10">Created by. {data?.name}</div>;
+  return <div className="text-right  mb-10">Created by. {data.name}</div>;
 };

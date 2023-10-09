@@ -5,7 +5,7 @@ import { SWRConfig } from "swr";
 import { API_URL } from "@/src/utils/const";
 
 export const getServerSideProps = async () => {
-  const USERS_API_URL = `${API_URL}users`;
+  const USERS_API_URL = `${API_URL}/users`;
   const users = await fetch(USERS_API_URL);
   const usersData = await users.json();
 

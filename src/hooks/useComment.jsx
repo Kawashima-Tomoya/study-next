@@ -6,7 +6,7 @@ import useSWRImmutable from "swr/immutable";
 export const useComment = () => {
   const router = useRouter();
   const { data, error, isLoading } = useSWRImmutable(
-    router.query.id ? `${API_URL}comments/${router.query.id}` : null,
+    router.query.id ? `${API_URL}/comments/${router.query.id}` : null,
     fetcher
   );
 
