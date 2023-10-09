@@ -21,7 +21,11 @@ export const Comments = () => {
       {data.map((comment) => {
         return (
           <li key={comment.id} className="border-b pb-2">
-            <Link key={comment.id} href={`comments/${comment.id}`}>
+            <Link
+              key={comment.id}
+              href={`comments/${comment.id}`}
+              prefetch={false}
+            >
               <p className="block hover:text-blue-500">{comment.body}</p>
             </Link>
           </li>
