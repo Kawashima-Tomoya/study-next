@@ -1,6 +1,5 @@
 import Head from "next/head";
-import { Header } from "@/src/components/Header";
-import { Users as PostUsers } from "@/src/components/Users";
+import { UserList } from "@/src/components/User/userList";
 import { SWRConfig } from "swr";
 import { API_URL } from "@/src/utils/const";
 
@@ -27,8 +26,7 @@ const Users = (props) => {
         <title>Users Page</title>
       </Head>
       <SWRConfig value={{ fallback }}>
-        <Header />
-        <PostUsers />
+        <UserList />
       </SWRConfig>
     </div>
   );

@@ -1,5 +1,5 @@
 import "tailwindcss/tailwind.css";
-import { Layout } from "@/src/components/Layout";
+import { AppLayout } from "@/src/Layouts/AppLayout";
 import Head from "next/head";
 import { SWRConfig } from "swr";
 
@@ -18,9 +18,9 @@ const App = ({ Component, pageProps }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SWRConfig value={{ fetcher: fetcher }}>
-        <Layout>
+        <AppLayout>
           <Component {...pageProps} />
-        </Layout>
+        </AppLayout>
       </SWRConfig>
     </>
   );

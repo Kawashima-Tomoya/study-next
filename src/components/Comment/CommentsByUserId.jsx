@@ -1,8 +1,13 @@
+import { useFetchArray } from "@/src/hooks/useFetchArray";
+import { API_URL } from "@/src/utils/const";
+import { fetcher } from "@/src/utils/fetcher";
 import Link from "next/link";
-import { useCommentsByPostId } from "@/src/hooks/useFetchArray";
 
-export const CommentsByPostId = (props) => {
-  const { data, error, isLoading, isEmpty } = useCommentsByPostId(props.id);
+export const CommentsByUserId = (props) => {
+  const { data, error, isLoading, isEmpty } = useFetchArray(
+    props.id ? `${API_URL}/comments?id=${props.id}` : null,
+    fetcher
+  );
 
   if (error) {
     return <div>{error.message}</div>;

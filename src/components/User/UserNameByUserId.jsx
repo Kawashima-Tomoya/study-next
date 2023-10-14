@@ -1,11 +1,9 @@
+import { useFetch } from "@/src/hooks/useFetch";
 import { API_URL } from "@/src/utils/const";
-import { fetcher } from "@/src/utils/fetcher";
-import useSWR from "swr";
 
-export const UserByUserId = (props) => {
-  const { data, error, isLoading } = useSWR(
-    props.id ? `${API_URL}/users/${props.id}` : null,
-    fetcher
+export const UserNameByUserId = (props) => {
+  const { data, error, isLoading } = useFetch(
+    props.id ? `${API_URL}/users/${props.id}` : null
   );
 
   if (isLoading) {
